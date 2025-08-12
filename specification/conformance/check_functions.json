@@ -128,6 +128,11 @@
         "ResultColumnName"
       ],
       "FormatAttributes": []
+    },
+    "CheckBillingPeriodStartInclusive": {
+      "Description": "Verify the column value is the inclusive start bound of the billing period (i.e., it is the minimum datetime for all rows sharing the same BillingAccountId+InvoiceId or for the dataset’s billing cycle) and strictly less than BillingPeriodEnd.",
+      "Arguments": ["ColumnName", "EndColumnName"],
+      "FormatAttributes": ["DateTimeFormat-A-000-M"]
     }
   }
 }
