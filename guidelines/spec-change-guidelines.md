@@ -6,6 +6,9 @@ The FOCUS specification is designed to be updated over time to support new use c
 
 The FOCUS specification is released periodically. For each release a version number is assigned. Version numbers at this time are not strictly representative of compatibility. The version number is used to identify the release and to provide a reference point for changes. 
 
+### Supported Release Cadence
+For planning and conformance purposes, FOCUS may identify certain MINOR releases as officially‑supported for broad adoption and conformance evaluation. Deprecation retention requirements reference these officially‑supported releases. The set of officially‑supported releases is recorded in the release notes and/or conformance program documentation.
+
 ## Version Changelog
 
 A changelog is provided specifying helpful information to consumers of the FOCUS specification. The changelog for each version identifies the following:
@@ -13,7 +16,11 @@ A changelog is provided specifying helpful information to consumers of the FOCUS
 * The version number
 * Impact Classification
 * Change Type Classification 
-* Designation of deprecation of a feature or column
+* Designation of deprecation of a feature or column, including:
+   * the version where deprecation occured
+   * the no-sooner-than removal date and/or version
+   * the target removal version once determined (updated if it changes)
+   * any exception rationale if removal precedes the retention period
 * Designation of the addition of a new feature or column
 * Description of the change
 * Examples of the change, if needed
@@ -44,6 +51,18 @@ The FOCUS specification requires that removal actions are preceded with a deprec
   * If the removal version is not yet determined, the change log MUST state, "This column will be removed at a future FOCUS version."
   * If the removal version has already been determined, the change log MUST state, "This column will be removed in version 2.1."
 * Prior to removal, the FOCUS specification MUST be updated to include the version that will remove the deprecated column/metadata
+
+#### Deprecation Retention Period
+Once a capability or column is designated as deprecated in a published version of the FOCUS specification:
+	1.	It MUST remain in the specification for a minimum of 12 months and for at least two subsequent officially‑supported MINOR releases before it is eligible for removal.
+	2.	Removals MUST be scheduled for a release that is intended for broad adoption and conformance evaluation.
+	3.	A no‑sooner‑than removal version SHOULD be declared at the time of deprecation. Once a specific target removal version is determined, the specification and changelog MUST be updated to include that version.
+	4.	Exceptions (e.g., legal, security, or privacy requirements) MAY justify earlier removal; such exceptions MUST be explicitly documented in the changelog with rationale.
+Note: “Officially‑supported MINOR releases” are the MINOR versions identified by the project for broad adoption and conformance evaluation (see Versions). 
+
+Removal of a deprecated feature or column is classified as:
+* Migration Compatible if the same practitioner use case is fully supported by another feature or column in the specification.
+* Incompatible if removal results in the loss of support for a published practitioner use case.
 
 ## Change Type Classification
 
@@ -95,7 +114,7 @@ Examples:
 
 ### Incompatible Change
 
-Any change to the spec that ends the support of a Published Use Case. The removal of a Use Case or a column without an alternative source for the data supplied by the column. Incompatible Changes, require prior notification and  
+The removal of a use case or a column without an alternative feature or column that fully supports the same practitioner use case. Removals MUST observe the Deprecation Retention Period requirements prior to removal.
 
 Examples:
    - Removing a column
