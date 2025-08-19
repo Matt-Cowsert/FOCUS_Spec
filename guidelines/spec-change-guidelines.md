@@ -114,7 +114,7 @@ Examples:
 
 ### Incompatible Change
 
-The removal of a use case or a column without an alternative feature or column that fully supports the same practitioner use case. Removals MUST observe the Deprecation Retention Period requirements prior to removal.
+The removal of a supported feature or a column without an alternative feature or column that fully supports the same practitioner use case. Removals MUST observe the Deprecation Retention Period requirements prior to removal.
 
 Examples:
    - Removing a column
