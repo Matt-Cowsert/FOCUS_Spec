@@ -4,8 +4,10 @@
       "ConformanceRules": [
         "AvailabilityZone-C-000-M",
         "BilledCost-C-000-M",
+        "BillingAccountName-C-000-C",
         "BillingAccountType-C-000-M",
         "BillingPeriodStart-C-000-M",
+        "BillingPeriodEnd-C-000-M",
         "ListUnitPrice-C-000-C"
       ]
     }
