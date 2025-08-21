@@ -16,10 +16,7 @@ A changelog is provided specifying helpful information to consumers of the FOCUS
 * The version number
 * Impact Classification
 * Change Type Classification 
-* Designation of deprecation of a feature or column, including:
-   * the version where deprecation occured
-   * the no-sooner-than removal date and/or version
-   * the target removal version once determined (updated if it changes)
+* Deprecation designation of a feature or column to include the version where deprecation occured.
    * any exception rationale if removal precedes the retention period
 * Designation of the addition of a new feature or column
 * Description of the change
@@ -54,15 +51,12 @@ The FOCUS specification requires that removal actions are preceded with a deprec
 
 #### Deprecation Retention Period
 Once a capability or column is designated as deprecated in a published version of the FOCUS specification:
-	1.	It MUST remain in the specification for a minimum of 12 months and for at least two subsequent officially‑supported MINOR releases before it is eligible for removal.
-	2.	Removals MUST be scheduled for a release that is intended for broad adoption and conformance evaluation.
-	3.	A no‑sooner‑than removal version SHOULD be declared at the time of deprecation. Once a specific target removal version is determined, the specification and changelog MUST be updated to include that version.
+	1.	It MUST remain in the specification for a minimum of 3 releases (inclusive of the version where the deprecation is announced) before it is eligible for removal.
 	4.	Exceptions (e.g., legal, security, or privacy requirements) MAY justify earlier removal; such exceptions MUST be explicitly documented in the changelog with rationale.
-Note: “Officially‑supported MINOR releases” are the MINOR versions identified by the project for broad adoption and conformance evaluation (see Versions). 
 
 Removal of a deprecated feature or column is classified as:
-* Migration Compatible if the same practitioner use case is fully supported by another feature or column in the specification.
-* Incompatible if removal results in the loss of support for a published practitioner use case.
+* Migration Compatible if the same supported feature is fully supported by another feature or column in the specification.
+* Incompatible if removal results in the loss of support for a supported feature.
 
 ## Change Type Classification
 
@@ -114,7 +108,8 @@ Examples:
 
 ### Incompatible Change
 
-The removal of a supported feature or a column without an alternative feature or column that fully supports the same practitioner use case. Removals MUST observe the Deprecation Retention Period requirements prior to removal.
+The removal of a supported feature or column without an alternative feature or column within the same dataset that fully supports the same practitioner use case. Removals MUST observe the Deprecation Retention Period requirements prior to removal.
 
 Examples:
-   - Removing a column
+   - Removing a column without introducing a replacement column
+   - Splitting an existing use case across multiple FOCUS datasets
