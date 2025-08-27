@@ -95,8 +95,8 @@ The FOCUS specification is designed to be updated overtime to increase use and t
 Any change in the specification that does not require modification by the consumer to continue using the specification for published use cases. 
 
 Examples: 
-  - Adding a new column for a new use case or 
-  - Adding a new category for an existing that does not require splitting or re-categorization.
+  - Adding a new column for a new supported feature 
+  - Adding a new category for an existing column that does not require splitting or re-categorization.
 
 ### Migration Compatible Change
 
@@ -108,8 +108,7 @@ Examples:
 
 ### Incompatible Change
 
-The removal of a supported feature or column without an alternative feature or column within the same dataset that fully supports the same practitioner use case. Removals MUST observe the Deprecation Retention Period requirements prior to removal.
+The removal of a supported feature or column without an alternative feature or column that fully supports the same use case. Removals MUST observe the Deprecation Retention Period requirements prior to removal.
 
 Examples:
    - Removing a column without introducing a replacement column
-   - Splitting an existing use case across multiple FOCUS datasets
