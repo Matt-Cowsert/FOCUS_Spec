@@ -51,8 +51,8 @@ The FOCUS specification requires that removal actions are preceded with a deprec
 
 #### Deprecation Retention Period
 Once a capability or column is designated as deprecated in a published version of the FOCUS specification:
-	1.	It MUST remain in the specification for a minimum of 3 releases (inclusive of the version where the deprecation is announced) before it is eligible for removal.
-	4.	Exceptions (e.g., legal, security, or privacy requirements) MAY justify earlier removal; such exceptions MUST be explicitly documented in the changelog with rationale.
+* It MUST remain in the specification for a minimum of 3 releases (inclusive of the version where the deprecation is announced) before it is eligible for removal.
+* Exceptions (e.g., legal, security, or privacy requirements) MAY justify earlier removal; such exceptions MUST be explicitly documented in the changelog with rationale.
 
 Removal of a deprecated feature or column is classified as:
 * Migration Compatible if the same supported feature is fully supported by another feature or column in the specification.
@@ -95,16 +95,16 @@ The FOCUS specification is designed to be updated overtime to increase use and t
 Any change in the specification that does not require modification by the consumer to continue using the specification for published use cases. 
 
 Examples: 
-  - Adding a new column for a new supported feature 
-  - Adding a new category for an existing column that does not require splitting or re-categorization.
+  * Adding a new column for a new supported feature 
+  * Adding a new category for an existing column that does not require splitting or re-categorization.
 
 ### Migration Compatible Change
 
 Any change that still supports the Published Supported Features, but may require modification to query or ingestion by consumers of a FOCUS dataset.
 
 Examples: 
-   - An existing categorization column is changed to split a category into two different categories
-   - An existing column that contains a numerical value is has its units changed, requiring a modification to queries using the column. The ability to use the column is preserved but a new query must be written
+   * An existing categorization column is changed to split a category into two different categories
+   * An existing column that contains a numerical value is has its units changed, requiring a modification to queries using the column. The ability to use the column is preserved but a new query must be written
 
 ### Incompatible Change
 
