@@ -8,6 +8,11 @@ The specification for the Cost and Usage dataset defines a group of columns that
 
 | Column                                                                        | Column Type | Feature Level | Allows Nulls | Data Type |
 | ----------------------------------------------------------------------------- | ----------- | ------------- | ------------ | --------- |
+| [Allocated Method ID](#allocatedmethodid)                                     | Dimension   | Conditional   | True         | String    |
+| [Allocated Method Details](#allocatedmethoddetails)                           | Dimension   | Recommended   | True         | JSON      |
+| [Allocated Resource ID](#allocatedresourceid)                                 | Dimension   | Conditional   | True         | String    |
+| [Allocated Resource Name](#allocatedresourcename)                             | Dimension   | Conditional   | True         | String    |
+| [Allocated Tags](#allocatedtags)                                              | Dimension   | Conditional   | True         | JSON      |
 | [Availability Zone](#availabilityzone)                                        | Dimension   | Recommended   | True         | String    |
 | [Billed Cost](#billedcost)                                                    | Metric      | Mandatory     | False        | Decimal   |
 | [Billing Account ID](#billingaccountid)                                       | Dimension   | Mandatory     | False        | String    |
@@ -82,6 +87,7 @@ The CostAndUsage dataset adheres to the following requirements:
 * CostAndUsage MUST conform to [ColumnHandling](#columnhandling) requirements.
 * CostAndUsage MUST conform to [DiscountHandling](#discounthandling) requirements.
 * CostAndUsage MUST conform to [NullHandling](#nullhandling) requirements.
+* CostAndUsage MUST conform to [ProviderCalculatedSplitCostAllocationHandling](#provider-calculatedsplitcostallocationhandling) requirements.
 
 <div class='h4-nonindex'>Dataset ID</div>
 
