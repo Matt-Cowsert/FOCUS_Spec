@@ -38,8 +38,7 @@
 | Business             | Uniqueness                         | When applicable                       | BillingAccountId MUST be a unique identifier within a provider.                            |
 | Business             | Fallback/Substitute Values         | When applicable                       | {ColumnId} MUST NOT duplicate {OtherColumnId} when Condition.                              |
 | Business             | Relationships Outside the Spec     | When applicable                       | The sum of {ColumnId} in a given billing period MUST match the sum of the invoices received for that billing period for a billing account. |
-| Business             | Formula-based Cost Validation      | When applicable                       | The product of Column1 and Column2 MUST match the column3 when Condition.                  |
-| Business             | Cost Correction Discrepancies      | When applicable                       | Discrepancies in ListUnitPrice, ListCost, or PricingQuantity MAY exist when ChargeClass is "Correction". |
+| Business             | Formula-based Cost Validation      | When applicable                       | {CostColumnId} MUST equal the product of {UnitPriceColumnId} and PricingQuantity when {UnitPriceColumnId} is not null and PricingQuantity is not null. |
 | Business             | Cost Calculation and Relationships | When applicable                       | When Condition, {ColumnId} adheres to the following additional requirements:<br>  * {ColumnId} of a charge calculated based on other charges (e.g., when the ChargeCategory is "Tax") MUST be calculated based on the ContractedCost of those related charges.<br>  * {ColumnId} of a charge unrelated to other charges (e.g., when the ChargeCategory is "Credit") MUST match the BilledCost. |
 | Business             | Other                              | When applicable                       |                                                                                           |
 
@@ -69,7 +68,67 @@
 
 * **Default to Singular Form**: Column references should be singular, with the understanding that the requirement applies to all values in the column.
 
-### Additional Guidelines for Columns in Simplified JSON Format
+* **Reuse Requirement Text Across Columns**: When a normative requirement applies to multiple columns, the exact same wording should be used for all. This takes precedence over the **Start with the ColumnId** rule to maintain consistency and avoid unnecessary variations in language.
+  
+  **Example Pattern 2**
+
+  ```markdown
+  * <CostColumnId> MUST equal the product of <UnitPriceColumnId> and PricingQuantity when <UnitPriceColumnId> is not null and PricingQuantity is not null.
+  ```  
+
+### Additional Guidelines for Columns in JSON Format
+
+#### Column Definition Structure
+
+* **Separate normative requirements into sections for column, JSON schema, and contents**: Communicating the normative requirements for a column, JSON schema, and the contents can be convoluted. Separating these requirements provides better clarity.
+  * Column normative requirements specify requirements of the column such as nullability.
+  * JSON schema normative requirements specify the shape of the JSON.
+  * Contents normative requirements usually specify the expected Keys, the format of the Values, and the expected contents of the Values.
+
+#### JSON Schema
+
+* **Omit JSON schema normative requirements for Key-Value Format columns**: The Key-Value Format definition is sufficient to define the expected JSON schema.
+
+* **Include JSON schema normative requirements for JSON Object Format columns**: The JSON Object Format specifies that the format is subject to the requirement of the column and that provider-defined columns must have documented schema.
+  * The pattern used in [AllocatedMethodDetails](#allocatedmethoddetails) and [ContractApplied](#contractapplied) consists of Object containing a collection whose key is "Elements" which contains one or more objects in the Key-Value format.
+
+  **Example JSON**
+  ```json
+  {
+    "Elements" : [ {
+      "RequiredKey1" : 0.05,
+      "RecommendedKey2" : "CPU",
+      "RecommendedKey3" : 0.5
+    }, {
+      "RequiredKey1" : 0.1,
+      "RecommendedKey3" : 4,
+      "ProviderDefinedKey4": "SomeString"
+    } ]
+  }
+  ```
+
+* **Include a [JSON Type Definition](https://www.rfc-editor.org/rfc/rfc8927) (JTD) as an approximation of the expected schema, but clarify that JTD is non-normative and that normative requirements take precedence when there is a discrepancy**: JSON Type Definition is a convenient way to visualize the expected shape of JSON data, but it often cannot replicate the JSON schema normative requirements of FOCUS. E.g. [NumericFormat](#numericformat) allows for multiple numeric data types and precisions, but JTD requires both to be specified.
+
+  **Example JTD**
+  ```json
+  {
+    "properties": {
+      "Elements": {
+        "elements": {
+          "properties": {
+            "RequiredKey1": { "type": "float64" }
+          },
+          "optionalProperties": {
+            "RecommendedKey2": { "type": "string" },
+            "RecommendedKey3": { "type": "float64" }
+          },
+          "additionalProperties": true
+        }
+      }
+    },
+    "additionalProperties": true
+  }
+  ```
 
 #### Key-Value Pairs
 
@@ -83,8 +142,10 @@
   * In **Tags**, refer to **tag key** when addressing only the key, and **tag value** when addressing only the value.
   * In **SkuPriceDetails**, refer to **property key** when addressing only the key, and **property value** when addressing only the value.
   * When linking a key to its value, use **corresponding value**.
-  
+
 * **First Mention and Context**: In the case of SkuPriceDetails property key, the first mention explicitly uses "SkuPriceDetails property key" to establish the context. Subsequent references to "property key" and "property value" omit "SkuPriceDetails" as the context is already understood. In contrast, for Tags, this is not necessary, as the context is inherently clear from the column name.
+
+* **Put references to a specific key in double quotes**: In the case of AllocatedMethodDetails, normative requirements are applied to specific keys. To delineate for example that the object with the key "Elements" is being referred, the key should be used in its exact casing inside of double quotation marks `"`.
 
 * **Start Key-Specific Requirements with the Key Term**: When a requirement applies to a key, it SHOULD begin with **tag key**, **property key**, or the applicable term for that column.
 
@@ -277,14 +338,7 @@ To ensure clarity and consistency across columns and requirements, it is importa
 ##### Formula-based Cost Validation
 
 ```markdown
-* The product of <PricingQuantity|UnitPriceColumnId> and <UnitPriceColumnId|PricingQuantity> MUST match the <CostColumnId> when <Condition> and ChargeClass is not "Correction".
-* The product of <PricingQuantity|UnitPriceColumnId> and <UnitPriceColumnId|PricingQuantity> MUST match the <CostColumnId> when <Condition1>, <Condition2>, and ChargeClass is not "Correction".
-```
-
-##### Cost Correction Discrepancies
-
-```markdown
-* Discrepancies in <MetricId1>, <MetricId2>, or <MetricId3> MAY exist when ChargeClass is "Correction".
+  * <CostColumnId> MUST equal the product of <UnitPriceColumnId> and PricingQuantity when <UnitPriceColumnId> is not null and PricingQuantity is not null.
 ```
 
 #### Business & Contextual Requirements: Cost Calculation and Relationships
@@ -419,7 +473,7 @@ The CommitmentDiscountQuantity column adheres to the following requirements:
 * When CommitmentDiscountQuantity is not null, CommitmentDiscountQuantity adheres to the following additional requirements:
   * CommitmentDiscountQuantity MUST be a valid decimal value.
   * When ChargeCategory is "Purchase":
-    * CommitmentDiscountQuantity MUST be the quantity of CommitmentDiscountUnit, paid fully or partially upfront, that is eligible for consumption over the *commitment discount's* *term* when [ChargeFrequency](#chargefrequency) is "One-Time".
+    * CommitmentDiscountQuantity MUST be the quantity of CommitmentDiscountUnit, paid fully or partially upfront, that is eligible for consumption over the *commitment discount's* [*period*](#glossary:period) when [ChargeFrequency](#chargefrequency) is "One-Time".
     * CommitmentDiscountQuantity MUST be the quantity of CommitmentDiscountUnit that is eligible for consumption for each *charge period* that corresponds with the purchase when ChargeFrequency is "Recurring".
   * When ChargeCategory is "Usage":
     * CommitmentDiscountQuantity MUST be the metered quantity of CommitmentDiscountUnit that is consumed in a given *charge period* when [CommitmentDiscountStatus](#commitmentdiscountstatus) is "Used".
@@ -435,7 +489,7 @@ The CommitmentDiscountQuantity column adheres to the following requirements:
 
 In cases where the ChargeCategory is "Purchase", CommitmentDiscountId is not null, and ChargeClass is not "Correction", the following applies:
 
-* When [ChargeFrequency](#chargefrequency) is "One-Time", and CommitmentDiscountId is not null, CommitmentDiscountQuantity MUST be the positive quantity of CommitmentDiscountUnits, paid fully or partially upfront, that is eligible for consumption over the *commitment discount's* *term*.
+* When [ChargeFrequency](#chargefrequency) is "One-Time", and CommitmentDiscountId is not null, CommitmentDiscountQuantity MUST be the positive quantity of CommitmentDiscountUnits, paid fully or partially upfront, that is eligible for consumption over the *commitment discount's* [*period*](#glossary:period).
 * When ChargeFrequency is "Recurring", and CommitmentDiscountId is not null, CommitmentDiscountQuantity MUST be the positive quantity of CommitmentDiscountUnits that is eligible for consumption for each *charge period* that corresponds with the purchase.
 
 In cases where the ChargeCategory is "Usage", CommitmentDiscountId is not null, and ChargeClass is not "Correction", the following applies:
