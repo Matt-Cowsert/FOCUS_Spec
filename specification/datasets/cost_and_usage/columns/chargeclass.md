@@ -2,7 +2,9 @@
 
 Charge Class indicates whether the [*row*](#glossary:row) represents a correction to a previously invoiced [*billing period*](#glossary:billing-period). Charge Class is commonly used to differentiate [*corrections](#glossary:correction) from regularly incurred [*charges*](#glossary:charge).
 
-The ChargeClass column adheres to the following requirements:
+## Requirements
+
+ChargeClass adheres to the following requirements:
 
 * ChargeClass MUST be present in a Cost and Usage [*FOCUS dataset*](#glossary:FOCUS-dataset).
 * ChargeClass MUST be of type String.
@@ -42,3 +44,4 @@ Allowed values:
 ## Introduced (version)
 
 1.0
+

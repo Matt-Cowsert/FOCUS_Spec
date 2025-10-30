@@ -2,7 +2,9 @@
 
 A Billing Account Name is a display name assigned to a [*billing account*](#glossary:billing-account). *Billing accounts* are commonly used for scenarios like grouping based on organizational constructs, invoice reconciliation and cost allocation strategies.
 
-The BillingAccountName column adheres to the following requirements:
+## Requirements
+
+BillingAccountName adheres to the following requirements:
 
 * BillingAccountName MUST be present in a Cost and Usage [*FOCUS dataset*](#glossary:FOCUS-dataset).
 * BillingAccountName MUST be of type String.
