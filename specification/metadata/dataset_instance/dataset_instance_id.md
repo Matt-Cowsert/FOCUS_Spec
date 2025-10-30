@@ -1,12 +1,13 @@
 # Dataset Instance ID
 
-The Dataset Instance ID provides the reference item to associate which Dataset Instance the recency metadata is for.
+The Dataset Instance ID is a data generator-specified unique identifier that represents a specific FOCUS dataset instance provided by the data generator.
 
 DatasetInstanceId adheres to the following requirements:
 
-* DatasetInstanceId MUST be present in an object within the [Recency](#recency) collection.
+* DatasetInstanceId MUST be present in an object within the [DatasetInstance](#datasetinstance) collection.
 * DatasetInstanceId MUST be of type String.
-* DatasetInstanceId MUST NOT be null.
+* DatasetInstanceId MUST NOT contain null values.
+* DatasetInstanceId MUST be a unique identifier within a data generator.
 * DatasetInstanceId SHOULD be a Globally Unique Identifier (GUID).
 
 ## Metadata ID
