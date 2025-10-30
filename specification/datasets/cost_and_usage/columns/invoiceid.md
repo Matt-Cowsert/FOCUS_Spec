@@ -2,7 +2,9 @@
 
 An Invoice ID is a provider-assigned identifier for an invoice encapsulating [*charges*](#glossary:charge) in the corresponding [*billing period*](#glossary:billing-period) for a given [*billing account*](#glossary:billing-account). Invoices are commonly used for scenarios like tracking billing transactions, facilitating payment processes and for performing invoice reconciliation between *charges* and billing periods.
 
-The InvoiceId column adheres to the following requirements:
+## Requirements
+
+InvoiceId adheres to the following requirements:
 
 * InvoiceId is RECOMMENDED to be present in a Cost and Usage [*FOCUS dataset*](#glossary:FOCUS-dataset).
 * InvoiceId MUST be of type String.

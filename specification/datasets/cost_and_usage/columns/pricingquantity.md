@@ -2,7 +2,9 @@
 
 The Pricing Quantity represents the volume of a given [*SKU*](#glossary:sku) associated with a [*resource*](#glossary:resource) or [*service*](#glossary:service) used or purchased, based on the [Pricing Unit](#pricingunit). Distinct from [Consumed Quantity](#consumedquantity) (complementary to [Consumed Unit](#consumedunit)), it focuses on pricing and cost, not *resource* and *service* consumption.
 
-The PricingQuantity column adheres to the following requirements:
+## Requirements
+
+PricingQuantity adheres to the following requirements:
 
 * PricingQuantity MUST be present in a Cost and Usage [*FOCUS dataset*](#glossary:FOCUS-dataset).
 * PricingQuantity MUST be of type Decimal.

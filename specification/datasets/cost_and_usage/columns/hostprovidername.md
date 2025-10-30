@@ -4,7 +4,9 @@ Host Provider Name is the name of the entity that provides the underlying infras
 
 In some instances, the host provider and the service provider are the same entity: the provider hosts their own services.  In other instances, the host provider and the service provider are separate entities, though the service provider may or may not expose the host provider and/or allow the customer to select the host provider.
 
-The HostProviderName column adheres to the following requirements:
+## Requirements
+
+HostProviderName adheres to the following requirements:
 
 * HostProviderName MUST be present in a Cost and Usage [*FOCUS dataset*](#glossary:FOCUS-dataset).
 * HostProviderName MUST be of type String.

@@ -2,7 +2,9 @@
 
 A Commitment Discount Name is the display name assigned to a [*commitment discount*](#glossary:commitment-discount). The CommitmentDiscountName column is only applicable to *commitment discounts* and not [*negotiated discounts*](#glossary:negotiated-discount).
 
-The CommitmentDiscountName column adheres to the following requirements:
+## Requirements
+
+CommitmentDiscountName adheres to the following requirements:
 
 * CommitmentDiscountName MUST be present in a Cost and Usage [*FOCUS dataset*](#glossary:FOCUS-dataset) when the provider supports *commitment discounts*.
 * CommitmentDiscountName MUST be of type String.

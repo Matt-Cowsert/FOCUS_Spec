@@ -2,7 +2,9 @@
 
 Commitment Discount Status indicates whether the [*charge*](#glossary:charge) corresponds with the consumption of a [*commitment discount*](#glossary:commitment-discount) identified in the CommitmentDiscountId column or the unused portion of the committed amount. The CommitmentDiscountStatus column is only applicable to *commitment discounts* and not [*negotiated discounts*](#glossary:negotiated-discount).
 
-The CommitmentDiscountStatus column adheres to the following requirements:
+## Requirements
+
+CommitmentDiscountStatus adheres to the following requirements:
 
 * CommitmentDiscountStatus MUST be present in a Cost and Usage [*FOCUS dataset*](#glossary:FOCUS-dataset) when the provider supports *commitment discounts*.
 * CommitmentDiscountStatus MUST be of type String.
