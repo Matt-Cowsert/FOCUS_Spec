@@ -87,11 +87,12 @@ The Cost and Usage dataset can be joined to the Contract Commitment dataset thro
 
 <div class='h4-nonindex'>Requirements</div>
 
-The CostAndUsage dataset adheres to the following requirements:
+CostAndUsage adheres to the following requirements:
 
+* CostAndUsage MUST be present.
 * CostAndUsage MUST conform to [ColumnHandling](#columnhandling) requirements.
-* CostAndUsage MUST conform to [DiscountHandling](#discounthandling) requirements.
 * CostAndUsage MUST conform to [NullHandling](#nullhandling) requirements.
+* CostAndUsage MUST conform to [DiscountHandling](#discounthandling) requirements.
 * CostAndUsage MUST conform to [InvoiceHandling](#invoicehandling) requirements.
 * CostAndUsage MUST conform to [ProviderCalculatedSplitCostAllocationHandling](#provider-calculatedsplitcostallocationhandling) requirements.
 
