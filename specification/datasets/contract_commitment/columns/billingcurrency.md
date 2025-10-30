@@ -2,7 +2,9 @@
 
 [*Billing currency*](#glossary:billing-currency) is an identifier that represents the currency of a [*contract commitment*](#glossary:contract-commitment).
 
-The BillingCurrency column adheres to the following requirements:
+## Requirements
+
+BillingCurrency adheres to the following requirements:
 
 * BillingCurrency MUST be present in a Contract Commitment [*FOCUS dataset*](#glossary:FOCUS-dataset).
 * BillingCurrency MUST be of type String.
