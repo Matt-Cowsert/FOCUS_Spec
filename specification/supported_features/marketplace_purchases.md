@@ -2,38 +2,38 @@
 
 ## Description
 
-FOCUS supports the analysis of cost and usage data for marketplace purchases and their associated costs. It also supports the reporting of EffectiveCost for usage from the provider.  
+FOCUS supports the analysis of cost and usage data for marketplace purchases and their associated costs. It also supports the reporting of EffectiveCost for usage from the service provider.  
 
 ## Directly Dependent Columns
 
 * InvoiceIssuerName
-* ProviderName
+* ServiceProviderName
 
 ## Supporting Columns
 
 * BilledCost
 * EffectiveCost
 
-## Example SQL Query on a CSP Marketplace FOCUS Dataset
+## Example SQL Query on a CSP Marketplace using the Cost and Usage FOCUS Dataset
 
 ```sql
 SELECT
-  ProviderName,
+  ServiceProviderName,
   InvoiceIssuerName,
   BillingPeriodStart,
   BillingPeriodEnd,
   SUM(BilledCost) AS TotalBilledCost
 FROM focus_data_table
-WHERE ProviderName = '<Example SaaS Provider>'
+WHERE ServiceProviderName = '<Example SaaS Provider>'
   AND InvoiceIssuerName = '<Example CSP Marketplace>'
 GROUP BY
-  ProviderName,
+  ServiceProviderName,
   InvoiceIssuerName,
   BillingPeriodStart,
   BillingPeriodEnd
 ```
 
-## Example SQL Query on a Provider FOCUS Dataset
+## Example SQL Query on a Provider using the Cost and Usage FOCUS Dataset
 
 ```sql
 SELECT
