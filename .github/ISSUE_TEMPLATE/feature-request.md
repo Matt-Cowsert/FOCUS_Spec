@@ -7,23 +7,80 @@ Describe the problem, issue, or opportunity this feature addresses. Include prac
 
 ---
 
-### 🧪 Use Case
-Provide 1–2 sentences describing how this feature will be used in practice. You may skip this if it is already clearly explained in the problem statement. 
+### 🧪 Use Case (Required)
+Provide a specific, real-world scenario. Use this format:
 
-**Example format:** `As a FinOps practitioner, I want to [behavior], so that [desired outcome].`
+**Practitioner Profile**: [e.g., FinOps Analyst at 500-person SaaS company]  
+**Current Challenge**: [What specific problem do they face today?]  
+**Desired Workflow**: As a [role], I want to [specific behavior], so that [measurable outcome].  
+**Success Criteria**: [How will the practitioner know this feature works?]
 
-```
-[Write your use case here.]
-```
+**Example Scenario**: Provide a concrete example with sample data/values if possible.
 
 ---
 
-### 🎯 Desired Outcome / Practitioner Impact
-Define the expected outcome, how success will be measured, and how this benefits FinOps practitioners.
+### 🚀 Adoption Impact (Required)
+Which category best describes this feature's impact on FOCUS adoption?
 
-```
-[Write your objective and KPIs here.]
-```
+- [ ] **Adoption Blocker** – Organizations cannot adopt FOCUS without this feature
+- [ ] **Adoption Accelerator** – This feature would help organizations start using FOCUS
+- [ ] **Practitioner Enhancement** – Improves experience for existing FOCUS users  
+- [ ] **Technical Improvement** – Internal specification refinement
+
+**Justification**: Explain why this categorization applies (1-2 sentences)
+
+---
+
+### 🎯 Implementation Scope
+- [ ] **MVP Only** – Minimum viable implementation to solve the core problem
+- [ ] **MVP + Extensions** – Core feature with optional enhancements  
+- [ ] **North Star** – Comprehensive solution (may be implemented in phases)
+
+**MVP Definition**: Describe the minimum implementation that would provide value
+**North Star Vision**: Describe the ideal complete solution
+
+---
+
+### 💼 Business Value Assessment
+**Cost Savings Potential**: [e.g., "Could help practitioners identify 10-15% waste reduction"]  
+**Time Savings**: [e.g., "Eliminates 2-4 hours of weekly manual data normalization"]  
+**Risk Reduction**: [e.g., "Reduces billing reconciliation errors by providing standardized invoice data"]  
+**Organizational Scale**: [e.g., "Most valuable for enterprises with >$1M cloud spend"]  
+
+**Adoption Enablement**: How many organizations would this help start using FOCUS? [Estimate with reasoning]
+
+---
+
+### 🏗️ Provider Implementation Readiness
+Check all that apply and provide evidence of providers that currently support this:
+
+**Current Provider Support**:
+- [ ] AWS supports this ✓ [link to documentation]
+- [ ] Azure supports this ✓ [link to documentation]  
+- [ ] GCP supports this ✓ [link to documentation]
+- [ ] Other providers: [list]
+
+**Implementation Complexity**:
+- [ ] **Existing Data** – Providers already expose this data
+- [ ] **Data Transformation** – Requires processing existing provider data
+- [ ] **New Data Collection** – Providers would need to collect new metrics
+- [ ] **Provider Changes** – Requires provider system modifications
+
+---
+
+### 🔧 FOCUS Supported Features Alignment
+Which existing or new [FOCUS Supported Features](https://focus.finops.org/focus-specification/#supported-features) does this request enable or enhance?
+
+**Existing Features Enhanced**:
+- [ ] Cost and Usage Attribution
+- [ ] Charge Categorization  
+- [ ] Effective Cost
+- [ ] [Other - specify]
+
+**New Features Enabled**:
+- [ ] [Describe new supported feature this would enable]
+
+**Feature Description**: [1-2 sentences describing how this request advances FinOps capabilities]
 
 ---
 
@@ -37,7 +94,7 @@ How would you categorize this request? Select the option that best describes the
 
 ---
 
-### 🏛️ Organizations Requesting or Supporting This Feature
+### 🏛️ Organizations Requesting This Feature
 List one or more organizations who have requested or explicitly supported this request (including your own, if applicable).
 
 ```
@@ -80,7 +137,7 @@ How clearly defined is the request? Rate from 1 to 5:
 
 ---
 
-### 📂 Supporting Documentation
+### 📂 Other Supporting Documentation
 Include links to data samples, relevant PRs, GitHub discussions, or implementation references.
 
 > 🔐 **Reminder:** Please ensure any linked documents are accessible to maintainers and collaborators. If access is restricted, your request may be delayed.
