@@ -164,3 +164,25 @@ If your organization supports this request or has a similar use case:
   - Your **organization**
   - A **brief explanation** of why this is important to you (e.g., use case, urgency)
 - FOCUS Staff & Maintainers will aggregate supporting orgs over time.
+
+---
+
+## Other Process Improvements
+
+### Pre-Review Checklist
+Add a checklist for maintainers during issue triage. Example:
+- [ ] Problem Statement is specific and measurable.
+- [ ] Use case includes a concrete example scenario.
+- [ ] Adoption Impact is clearly categorized.
+- [ ] Provider readiness is documented.
+- [ ] Business Value is quantified.
+
+### Issue Labels Enhancement
+Based on issues filed in v1.4:
+- `adoption-blocker`, `adoption-accelerator`, `practitioner-enhancement`
+- `mvp-ready`, `needs-scoping`, `north-start`
+- `provider-ready`, `needs-provider-work`, `data-gap`
+
+### Common Mistakes 
+> ❌ **Avoid**: Vague problem statements like "improve cost visibility"
+> ✅ **Better**: "Practitioners cannot reconcile cloud bills with FOCUS data because invoice identifiers are missing"
